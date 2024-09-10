@@ -21,8 +21,47 @@ You may need to need to change the version number (`4.4.2`) and the archive
 See the [releases page][releases] for a list of supported platforms.
 
 #### Windows
-TODO: community support is requested here. Please open a PR if you'd like to
-contribute installation instructions for Windows.
+
+1. **Download the Latest Release via Browser**
+   - Visit the [official `cheat` GitHub releases page](https://github.com/cheat/cheat/releases) in your browser and download `cheat-windows-amd64.exe.zip` to your Downloads directory.
+  
+2. **Open Command Prompt as Administrator**
+   - Press `WIN + R`, type `cmd`, and press `CTRL + SHIFT + ENTER`.
+3. **Install `cheat`**
+
+- _Quick Installation Method:_
+   - Copy and paste the following command into your elevated Command Prompt:
+  ```bash
+  cd %UserProfile%\Downloads && powershell -command "Expand-Archive 'cheat-windows-amd64.exe.zip' '%ProgramFiles%\cheat'" && cd %ProgramFiles%\cheat && ren cheat-windows-amd64.exe cheat.exe && setx /M PATH "%PATH%;%ProgramFiles%\cheat"
+  ```
+- _Detailed Installation Method:_ 
+   - Navigate to your Downloads directory:
+     ```bash
+     cd %UserProfile%\Downloads
+     ```
+   - Extract the archive `cheat-windows-amd64.exe.zip` into a new directory:
+     ```bash
+     powershell -command "Expand-Archive 'cheat-windows-amd64.exe.zip' '%ProgramFiles%\cheat'"
+     ```
+   - Navigate to the newly created directory:
+     ```bash
+     cd %ProgramFiles%\cheat
+     ```
+   - Rename the executable file:
+     ```bash
+     ren cheat-windows-amd64.exe cheat.exe
+     ```
+   - Add the directory to the `PATH` environment variable:
+     ```bash
+     setx /M PATH "%PATH%;%ProgramFiles%\cheat"
+     ```
+
+5. **Verify the Installation**  
+   - Open a new Command Prompt window and run:
+     ```bash
+     cheat -v
+     ```
+If the installation was successful, you should see the version number displayed, and the `cheat` command will be recognized in your terminal.
 
 ### Install via `go install`
 If you have `go` version `>=1.17` available on your `PATH`, you can install
